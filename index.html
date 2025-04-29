@@ -287,8 +287,8 @@
     const btnFinish = document.getElementById('btnFinish');
     const ordersSec = document.getElementById('ordersSection');
     const ordersList= document.getElementById('ordersList');
-    const summaryEl = document.getElementById('summary');
-    const wppLink   = document.getElementById('wppLink');
+    const summaryEl = document.getElementById("summary");
+    const wppLink   = document.getElementById("wppLink");
     const form      = document.getElementById('formPedido');
 
     let state = {}, orders = [];
@@ -387,11 +387,11 @@
       reset();
     };
     btnFinish.onclick = () => {
-      orders.push({...state});
-      renderOrders();
-      showSummary();
-      renderWpp();
-    };
+  orders.push({...state});
+  renderOrders();      // atualiza lista
+  showSummary();       // gera texto
+  renderWpp();         // monta link do botão
+};
 
     function renderOrders() {
   ordersSec.style.display = 'block';
@@ -415,21 +415,22 @@
 }
 
 
-    function showSummary(){
-      let txt='';
-      orders.forEach((o,i)=>{
-        txt += `Pedido ${i+1}\n`<br>
-               `Tamanho: ${o.size}\n`+
-               `Frutas: ${o.frutas.join(', ')}\n`+
-               `Cremes: ${o.cremes.join(', ')}\n`+
-               `Acompanhamentos: ${o.accomp.join(', ')||'Nenhum'}\n`+
-               `Cobertura: ${o.cover}\n`+
-               `Adicionais: ${o.add.join(', ')||'Nenhum'}\n`+
-               `Pagamento: ${o.payment}\n`+
-               `Entrega: ${o.delivery}\n\n`;
-      });
-      summaryEl.textContent = txt;
-    }
+function showSummary() {
+  let txt = '';
+  orders.forEach((o, i) => {
+    txt += `Pedido ${i + 1}\n`;
+    txt += `Tamanho: ${o.size}\n`;
+    txt += `Frutas: ${o.frutas.join(', ')}\n`;
+    txt += `Cremes: ${o.cremes.join(', ')}\n`;
+    txt += `Acompanhamentos: ${o.accomp.length ? o.accomp.join(', ') : 'Nenhum'}\n`;
+    txt += `Cobertura: ${o.cover || 'Nenhuma'}\n`;
+    txt += `Adicionais: ${o.add.length ? o.add.join(', ') : 'Nenhum'}\n`;
+    txt += `Pagamento: ${o.payment}\n`;
+    txt += `Entrega: ${o.delivery}\n\n`;
+  });
+  summaryEl.textContent = txt;
+}
+
 
     function renderWpp(){
       const msg = encodeURIComponent(summaryEl.textContent);
@@ -444,6 +445,7 @@
       Object.values(fs).forEach(disable);
       btnAdd.disabled = btnFinish.disabled = true;
     }
-  </script>
+  
+</script>
 </body>
 </html>
