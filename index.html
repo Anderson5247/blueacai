@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Blue Açaí – Cardápio Interativo</title>
+  <style>
+    :root {
+      --purple: #5A0F8D;
+      --light-purple: #F3E5FF;
+      --dark-text: #333;
+      --card-bg: #fff;
+    }
+    * { box-sizing: border-box; margin:0; padding:0; }
+    body {
+      font-family:'Segoe UI',sans-serif;
+      background: var(--light-purple);
+      color: var(--dark-text);
+    }
+    header {
+      background: var(--purple);
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+    }
+    header img {
+      max-width: 120px;
+      margin-bottom: .5rem;
+    }
+    main {
+      max-width: 800px;
+      margin: 1rem auto;
+      padding: 0 1rem;
+    }
+    .card {
+      background: var(--card-bg);
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+    fieldset {
+      border:none;
+      margin:1rem 0;
+      transition:opacity .3s;
+    }
+    fieldset[disabled] { opacity:.6; }
+    legend { font-weight:bold; margin-bottom:.5rem; }
+    .grid-2 {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+      gap:.75rem;
+    }
+    label {
+      display:flex;align-items:center;
+      cursor:pointer;font-size:.95rem;
+    }
+    label input { margin-right:.5rem; }
+    .counter {
+      margin-left:.5rem;
+      color:var(--purple);
+      font-size:.9rem;
+    }
+    .buttons {
+      display:flex;gap:.5rem;
+      flex-wrap:wrap;margin-top:1rem;
+    }
+    .buttons button {
+      flex:1;min-width:120px;
+      padding:.75rem;
+      border:none;border-radius:4px;
+      background:var(--purple);
+      color:#fff;cursor:pointer;
+    }
+    .buttons button:disabled {
+      background:#ccc;cursor:not-allowed;
+    }
+    #summary {
+      white-space:pre-wrap;
+      background:#fff;padding:1rem;
+      border-radius:8px;
+      box-shadow:0 2px 6px rgba(0,0,0,0.1);
+      margin-bottom:1rem;
+      font-size:.9rem;
+    }
+    #ordersList li {
+      margin-bottom:.5rem;
+      list-style:disc inside;
+      font-size:.9rem;
+    }
+    a#wppLink {
+      display:inline-block;
+      background:#25D366;color:#fff;
+      padding:.75rem 1rem;border-radius:4px;
+      text-decoration:none;
+      font-size:.95rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Logomarca Blue Açaí" />
+    <h1>Blue Açaí</h1>
+    <p>Faça seu pedido passo a passo – sem sair do navegador!</p>
+  </header>
+
+  <main>
+    <div class="card">
+      <form id="formPedido">
+        <!-- 1. Tamanho -->
+        <fieldset>
+          <legend>1. Tamanho</legend>
+          <div class="grid-2">
+            <label>
+              <input type="radio" name="size" value="300ml" required />
+              300ml (R$10)
+            </label>
+            <label>
+              <input type="radio" name="size" value="500ml" />
+              500ml (R$15)
+            </label>
+          </div>
+        </fieldset>
+
+        <!-- 2. Frutas -->
+        <fieldset id="fsFrutas" disabled>
+          <legend>
+            2. Frutas <span id="cntFrutas" class="counter"></span>
+          </legend>
+          <div class="grid-2" id="boxFrutas">
+            <label><input type="checkbox" value="Morango" />Morango</label>
+            <label><input type="checkbox" value="Banana" />Banana</label>
+            <label><input type="checkbox" value="Kiwi" />Kiwi</label>
+            <label><input type="checkbox" value="Uva" />Uva</label>
+          </div>
+        </fieldset>
+
+        <!-- 3. Cremes -->
+        <fieldset id="fsCremes" disabled>
+          <legend>
+            3. Cremes <span id="cntCremes" class="counter"></span>
+          </legend>
+          <div class="grid-2" id="boxCremes">
+            <label><input type="checkbox" value="Ninho" />Ninho</label>
+            <label><input type="checkbox" value="Maracujá" />Maracujá</label>
+            <label><input type="checkbox" value="Morango" />Morango</label>
+            <label><input type="checkbox" value="Tutti Frutti" />Tutti Frutti</label>
+            <label><input type="checkbox" value="Chocolate com Avelã" />
+              Chocolate c/Avelã
+            </label>
+          </div>
+        </fieldset>
+
+        <!-- 4. Acompanhamentos -->
+        <fieldset id="fsAccomp" disabled>
+          <legend>4. Acompanhamentos (até 3)</legend>
+          <div class="grid-2" id="boxAccomp">
+            <label><input type="checkbox" value="Amendoim" />Amendoim</label>
+            <label><input type="checkbox" value="Paçoca" />Paçoca</label>
+            <label><input type="checkbox" value="Granola" />Granola</label>
+            <label><input type="checkbox" value="Farinha Láctea" />Farinha Láctea</label>
+            <label><input type="checkbox" value="Leite em Pó" />Leite em Pó</label>
+            <label><input type="checkbox" value="Confetes" />Confetes</label>
+            <label><input type="checkbox" value="Tapioca" />Tapioca</label>
+            <label><input type="checkbox" value="Uva Passa" />Uva Passa</label>
+          </div>
+        </fieldset>
+
+        <!-- 5. Cobertura -->
+        <fieldset id="fsCoverage" disabled>
+          <legend>5. Cobertura</legend>
+          <div class="grid-2">
+            <label>
+              <input type="radio" name="coverage" value="Chocolate" required />
+              Chocolate
+            </label>
+            <label>
+              <input type="radio" name="coverage" value="Morango" />
+              Morango
+            </label>
+            <label>
+              <input type="radio" name="coverage" value="Leite Condensado" />
+              Leite Condensado
+            </label>
+            <label>
+              <input type="radio" name="coverage" value="Tutti Frutti" />
+              Tutti Frutti
+            </label>
+            <label>
+              <input type="radio" name="coverage" value="Ice Blue" />Ice Blue
+            </label>
+            <label>
+              <input type="radio" name="coverage" value="Kiwi" />Kiwi
+            </label>
+          </div>
+        </fieldset>
+
+        <!-- 6. Adicionais? -->
+        <fieldset id="fsAskAdd" disabled>
+          <legend>6. Deseja adicionais?</legend>
+          <div class="grid-2">
+            <label>
+              <input type="radio" name="wantAdd" value="Sim" required />Sim
+            </label>
+            <label><input type="radio" name="wantAdd" value="Não" />Não</label>
+          </div>
+        </fieldset>
+
+        <!-- 7. Adicionais -->
+        <fieldset id="fsAdd" disabled>
+          <legend>
+            7. Adicionais <span id="cntAdd" class="counter"></span>
+          </legend>
+          <div class="grid-2" id="boxAdd">
+            <label><input type="checkbox" value="Ovomaltine" />Ovomaltine R$ 1.00</label>
+            <label><input type="checkbox" value="Escureto" />Escureto R$ 1.00</label>
+            <label><input type="checkbox" value="Chocoball" />Chocoball R$ 1.00</label>
+            <label><input type="checkbox" value="Amendoim" />Amendoim R$ 1.00</label>
+            <label><input type="checkbox" value="Paçoca" />Paçoca R$ 1.00</label>
+            <label><input type="checkbox" value="Granola" />Granola R$ 1.00</label>
+            <label><input type="checkbox" value="Farinha Láctea" />Farinha Láctea R$ 1.00</label>
+            <label><input type="checkbox" value="Leite em pó" />Leite em pó R$ 1.00</label>
+            <label><input type="checkbox" value="Confetes" />Confetes R$ 1.00</label>
+            <label><input type="checkbox" value="Tapioca" />Tapioca R$ 1.00</label>
+            <label><input type="checkbox" value="Uva Passa" />Uva Passa R$ 1.00</label>
+            <label><input type="checkbox" value="M&MS" />M&MS R$ 1.00</label>
+            <label><input type="checkbox" value="Marshmallow" />Marshmallow R$ 1.00</label>
+            <label><input type="checkbox" value="Doce de leite" />Doce de leite R$ 1.00</label>
+          </div>
+        </fieldset>
+
+        <!-- 8. Pagamento -->
+        <fieldset id="fsPayment" disabled>
+          <legend>8. Pagamento</legend>
+          <div class="grid-2">
+            <label><input type="radio" name="payment" value="Pix" required />Pix</label>
+            <label><input type="radio" name="payment" value="Dinheiro" />Dinheiro</label>
+            <label><input type="radio" name="payment" value="Cartão" />Cartão</label>
+          </div>
+        </fieldset>
+
+        <!-- 9. Entrega -->
+        <fieldset id="fsDelivery" disabled>
+          <legend>9. Entrega</legend>
+          <div class="grid-2">
+            <label>
+              <input type="radio" name="delivery" value="Retirada" required />
+              Retirada
+            </label>
+            <label><input type="radio" name="delivery" value="Entrega" />Entrega</label>
+          </div>
+        </fieldset>
+
+        <div class="buttons">
+          <button type="button" id="btnAdd" disabled>➕ Adicionar Pedido</button>
+          <button type="button" id="btnFinish" disabled>✅ Finalizar Pedido</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="card" id="ordersSection" style="display:none">
+      <h2>Pedidos adicionados:</h2>
+      <ul id="ordersList"></ul>
+    </div>
+
+    <div id="summary"></div>
+    <a id="wppLink" href="#" target="_blank" style="display:none"></a>
+  </main>
+
+  <script>
+    const fs = {
+      frutas:   document.getElementById('fsFrutas'),
+      cremes:   document.getElementById('fsCremes'),
+      accomp:   document.getElementById('fsAccomp'),
+      cover:    document.getElementById('fsCoverage'),
+      askAdd:   document.getElementById('fsAskAdd'),
+      add:      document.getElementById('fsAdd'),
+      payment:  document.getElementById('fsPayment'),
+      delivery: document.getElementById('fsDelivery')
+    };
+    const cnt = {
+      frutas: document.getElementById('cntFrutas'),
+      cremes: document.getElementById('cntCremes'),
+      add:    document.getElementById('cntAdd')
+    };
+    const btnAdd    = document.getElementById('btnAdd');
+    const btnFinish = document.getElementById('btnFinish');
+    const ordersSec = document.getElementById('ordersSection');
+    const ordersList= document.getElementById('ordersList');
+    const summaryEl = document.getElementById('summary');
+    const wppLink   = document.getElementById('wppLink');
+    const form      = document.getElementById('formPedido');
+
+    let state = {}, orders = [];
+
+    const enable  = el => el.removeAttribute('disabled');
+    const disable = el => el.setAttribute('disabled','');
+
+    function setupChecks(containerId, max, key) {
+      const box = document.getElementById(containerId);
+      box.querySelectorAll('input[type=checkbox]').forEach(chk => {
+        chk.onchange = () => {
+          const sel = [...box.querySelectorAll('input:checked')];
+          if (sel.length > max) chk.checked = false;
+          state[key] = sel.map(i=>i.value);
+          const counterEl = key==='frutas'? cnt.frutas : cnt.add;
+          counterEl.textContent = `${sel.length}/${max}`;
+          advance(key);
+        };
+      });
+    }
+
+    function advance(stage) {
+      switch(stage) {
+        case 'size':   enable(fs.frutas);   break;
+        case 'frutas': enable(fs.cremes);   break;
+        case 'cremes': enable(fs.accomp);   break;
+        case 'accomp': enable(fs.cover);    break;
+        case 'coverage':enable(fs.askAdd);  break;
+        case 'askAdd':
+          if (state.wantAdd ==='Sim') enable(fs.add);
+          else { state.add=[]; enable(fs.payment); }
+          break;
+        case 'add':     enable(fs.payment);  break;
+        case 'payment': enable(fs.delivery); break;
+        case 'delivery':
+          btnAdd.disabled    = false;
+          btnFinish.disabled = false;
+          break;
+      }
+    }
+
+    // Tamanho selecionado
+    document.querySelectorAll('input[name="size"]').forEach(radio=>{
+      radio.onchange = e => {
+        state.size = e.target.value;
+        // reset das etapas
+        Object.values(fs).forEach(disable);
+        btnAdd.disabled = btnFinish.disabled = true;
+        // configurar contadores
+        const mf = state.size==='300ml'?1:2;
+        cnt.frutas.textContent = `0/${mf}`;
+        cnt.cremes.textContent = `0/${mf}`;
+        cnt.add.textContent    = `0/14`;
+        // configurar grupos
+        setupChecks('boxFrutas', mf, 'frutas');
+        setupChecks('boxCremes', mf, 'cremes');
+        setupChecks('boxAccomp', 3, 'accomp');
+        setupChecks('boxAdd', 14, 'add');
+        // cobertura
+        document.querySelectorAll('input[name="coverage"]').forEach(r=>{
+          r.onchange = ev => {
+            state.cover = ev.target.value;
+            advance('coverage');
+          };
+        });
+        // adicionais?
+        document.querySelectorAll('input[name="wantAdd"]').forEach(r=>{
+          r.onchange = ev => {
+            state.wantAdd = ev.target.value;
+            advance('askAdd');
+          };
+        });
+        // pagamento
+        document.querySelectorAll('input[name="payment"]').forEach(r=>{
+          r.onchange = ev => {
+            state.payment = ev.target.value;
+            advance('payment');
+          };
+        });
+        // entrega
+        document.querySelectorAll('input[name="delivery"]').forEach(r=>{
+          r.onchange = ev => {
+            state.delivery = ev.target.value;
+            advance('delivery');
+          };
+        });
+        // libera frutas
+        advance('size');
+      };
+    });
+
+    // botões
+    btnAdd.onclick = () => {
+      orders.push({...state});
+      renderOrders();
+      reset();
+    };
+    btnFinish.onclick = () => {
+      orders.push({...state});
+      renderOrders();
+      showSummary();
+      renderWpp();
+    };
+
+    function renderOrders() {
+  ordersSec.style.display = 'block';
+  ordersList.innerHTML = '';
+
+  orders.forEach((o, i) => {
+    const li = document.createElement('li');
+    li.innerHTML = `
+      <strong>Pedido ${i + 1}</strong><br>
+      Tamanho: ${o.size}<br>
+      Frutas: ${o.frutas.join(', ')}<br>
+      Cremes: ${o.cremes.join(', ')}<br>
+      Acompanhamentos: ${o.accomp.length ? o.accomp.join(', ') : 'Nenhum'}<br>
+      Cobertura: ${o.cover || 'Nenhuma'}<br>
+      Adicionais: ${o.add.length ? o.add.join(', ') : 'Nenhum'}<br>
+      Pagamento: ${o.payment}<br>
+      Entrega: ${o.delivery}
+    `;
+    ordersList.appendChild(li);
+  });
+}
+
+
+    function showSummary(){
+      let txt='';
+      orders.forEach((o,i)=>{
+        txt += `Pedido ${i+1}\n`<br>
+               `Tamanho: ${o.size}\n`+
+               `Frutas: ${o.frutas.join(', ')}\n`+
+               `Cremes: ${o.cremes.join(', ')}\n`+
+               `Acompanhamentos: ${o.accomp.join(', ')||'Nenhum'}\n`+
+               `Cobertura: ${o.cover}\n`+
+               `Adicionais: ${o.add.join(', ')||'Nenhum'}\n`+
+               `Pagamento: ${o.payment}\n`+
+               `Entrega: ${o.delivery}\n\n`;
+      });
+      summaryEl.textContent = txt;
+    }
+
+    function renderWpp(){
+      const msg = encodeURIComponent(summaryEl.textContent);
+      wppLink.href = `https://wa.me/5598985016035]?text=${msg}`;
+      wppLink.textContent = '➡️ Enviar via WhatsApp';
+      wppLink.style.display = 'inline-block';
+    }
+
+    function reset(){
+      form.reset();
+      state = {};
+      Object.values(fs).forEach(disable);
+      btnAdd.disabled = btnFinish.disabled = true;
+    }
+  </script>
+</body>
+</html>
