@@ -59,21 +59,23 @@
 
         fieldset[disabled] {
             opacity: .6;
-            pointer-events: none; /* Impede interação */
+            pointer-events: none;
+            /* Impede interação */
         }
 
         legend {
             font-weight: bold;
             margin-bottom: .5rem;
-            color: var(--purple); /* Destaca a legenda */
+            color: var(--purple);
+            /* Destaca a legenda */
         }
+
         legend .section-status {
             font-weight: normal;
             font-size: 0.85em;
             color: #666;
             margin-left: 5px;
         }
-
 
         .grid-2 {
             display: grid;
@@ -86,18 +88,21 @@
             align-items: center;
             cursor: pointer;
             font-size: .95rem;
-            padding: 5px; /* Pequeno padding para facilitar clique */
+            padding: 5px;
+            /* Pequeno padding para facilitar clique */
             border-radius: 4px;
             transition: background-color 0.2s;
         }
-         label:hover {
-             background-color: #f0f0f0; /* Feedback visual no hover */
-         }
+
+        label:hover {
+            background-color: #f0f0f0;
+            /* Feedback visual no hover */
+        }
 
         label input[type="checkbox"],
         label input[type="radio"] {
             margin-right: .5rem;
-             cursor: pointer;
+            cursor: pointer;
         }
 
         .counter {
@@ -111,7 +116,8 @@
             display: flex;
             gap: .5rem;
             flex-wrap: wrap;
-            margin-top: 1.5rem; /* Mais espaço antes dos botões */
+            margin-top: 1.5rem;
+            /* Mais espaço antes dos botões */
         }
 
         .buttons button {
@@ -125,10 +131,11 @@
             cursor: pointer;
             transition: background-color 0.2s;
         }
-        .buttons button:hover:not(:disabled) {
-            background-color: #4a0c74; /* Escurece no hover */
-        }
 
+        .buttons button:hover:not(:disabled) {
+            background-color: #4a0c74;
+            /* Escurece no hover */
+        }
 
         .buttons button:disabled {
             background: #ccc;
@@ -150,30 +157,36 @@
         }
 
         #ordersSection {
-             border-top: 2px solid var(--purple); /* Divisor visual */
-             margin-top: 1.5rem;
-             padding-top: 1rem;
+            border-top: 2px solid var(--purple);
+            /* Divisor visual */
+            margin-top: 1.5rem;
+            padding-top: 1rem;
         }
 
         #ordersList li {
-            margin-bottom: .75rem; /* Mais espaço entre itens da lista */
-            list-style: none; /* Remove bullet points padrão */
+            margin-bottom: .75rem;
+            /* Mais espaço entre itens da lista */
+            list-style: none;
+            /* Remove bullet points padrão */
             padding-left: 1.5rem;
             position: relative;
-            border-bottom: 1px dashed #eee; /* Separador leve */
+            border-bottom: 1px dashed #eee;
+            /* Separador leve */
             padding-bottom: 0.5rem;
         }
-         #ordersList li::before {
-            content: '🍦'; /* Ícone de açaí */
+
+        #ordersList li::before {
+            content: '🍦';
+            /* Ícone de açaí */
             position: absolute;
             left: 0;
             top: 0;
             font-size: 0.9em;
-         }
-
+        }
 
         a#wppLink {
-            display: inline-flex; /* Alinha ícone e texto */
+            display: inline-flex;
+            /* Alinha ícone e texto */
             align-items: center;
             gap: 0.5rem;
             background: #25D366;
@@ -185,20 +198,24 @@
             margin-top: 1rem;
             transition: background-color 0.2s;
             /* Inicialmente oculto */
-             display: none;
+            display: none;
         }
-         a#wppLink:hover {
-             background-color: #1ebe58;
-         }
-         a#wppLink::before {
-             content: '▶️'; /* Ícone de envio */
-             font-size: 1em;
-         }
+
+        a#wppLink:hover {
+            background-color: #1ebe58;
+        }
+
+        a#wppLink::before {
+            content: '▶️';
+            /* Ícone de envio */
+            font-size: 1em;
+        }
 
         .tamanhos-opcoes {
             display: flex;
             justify-content: center;
-            gap: 1.5rem; /* Ajuste de espaçamento */
+            gap: 1.5rem;
+            /* Ajuste de espaçamento */
             flex-wrap: wrap;
             margin-top: 1rem;
         }
@@ -208,7 +225,8 @@
             border: 2px solid #ccc;
             border-radius: 10px;
             padding: 1rem;
-            width: 210px; /* Um pouco maior */
+            width: 210px;
+            /* Um pouco maior */
             text-align: center;
             transition: 0.3s;
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
@@ -216,31 +234,36 @@
             flex-direction: column;
             justify-content: space-between;
             cursor: pointer;
-             position: relative; /* Para o input radio */
+            position: relative;
+            /* Para o input radio */
         }
-         .tamanho-card input[type="radio"] {
-             position: absolute;
-             top: 10px;
-             right: 10px;
-             transform: scale(1.3); /* Rádio maior */
-             cursor: pointer;
-         }
+
+        .tamanho-card input[type="radio"] {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            transform: scale(1.3);
+            /* Rádio maior */
+            cursor: pointer;
+        }
 
         .tamanho-card:hover {
             border-color: var(--purple);
-            transform: translateY(-3px); /* Leve elevação */
+            transform: translateY(-3px);
+            /* Leve elevação */
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
         }
-         /* Estilo quando selecionado */
-        .tamanho-card input[type="radio"]:checked + div {
+
+        /* Estilo quando selecionado */
+        .tamanho-card input[type="radio"]:checked+div {
             /* Opcional: pode-se adicionar um estilo visual extra no div quando selecionado */
         }
-         label.tamanho-card.selected {
-              border-color: var(--purple);
-              box-shadow: 0 5px 10px rgba(90, 15, 141, 0.2);
-              background-color: #faf5ff;
-          }
 
+        label.tamanho-card.selected {
+            border-color: var(--purple);
+            box-shadow: 0 5px 10px rgba(90, 15, 141, 0.2);
+            background-color: #faf5ff;
+        }
 
         .tamanho-card img {
             width: 100%;
@@ -274,7 +297,8 @@
 
 <body>
     <header>
-        <img src="logo.png" alt="Logomarca Blue Açaí" /> <h1>Blue Açaí</h1>
+        <img src="logo.png" alt="Logomarca Blue Açaí" />
+        <h1>Blue Açaí</h1>
         <p>Monte seu açaí como quiser!</p>
     </header>
 
@@ -286,25 +310,25 @@
                     <div class="tamanhos-opcoes">
                         <label class="tamanho-card" for="size-300">
                             <img src="copo-pequeno.jpg" alt="Copo Pequeno" />
-                            <input type="radio" name="size" value="Copo Pequeno (300ml)" id="size-300" required />
+                            <input type="radio" name="size" value="Copo Pequeno (300ml) - R$ 10.00" id="size-300" required />
                             <div>
-                                <strong>Copo Pequeno (300ml)</strong>
+                                <strong>Copo Pequeno (300ml)</strong> - R$ 10.00
                                 <span>Até 1 fruta, até 1 creme,<br>até 3 acompanhamentos,<br>até 1 cobertura</span>
                             </div>
                         </label>
                         <label class="tamanho-card" for="size-500">
                             <img src="copo-grande.jpg" alt="Copo Grande" />
-                            <input type="radio" name="size" value="Copo Grande (500ml)" id="size-500" />
+                            <input type="radio" name="size" value="Copo Grande (500ml) - R$ 15.00" id="size-500" />
                             <div>
-                                <strong>Copo Grande (500ml)</strong>
+                                <strong>Copo Grande (500ml)</strong> - R$ 15.00
                                 <span>Até 2 frutas, até 2 cremes,<br>até 3 acompanhamentos,<br>até 1 cobertura</span>
                             </div>
                         </label>
                         <label class="tamanho-card" for="size-1L">
                             <img src="pote-felicidade.jpg" alt="Pote da Felicidade" />
-                            <input type="radio" name="size" value="Pote da Felicidade (1L)" id="size-1L" />
+                            <input type="radio" name="size" value="Pote da Felicidade (1L) - R$ 40.00" id="size-1L" />
                             <div>
-                                <strong>Pote da Felicidade (1 litro)</strong>
+                                <strong>Pote da Felicidade (1 litro)</strong> - R$ 40.00
                                 <span>Até 3 frutas, até 3 cremes,<br>até 4 acompanhamentos,<br>até 2 coberturas</span>
                             </div>
                         </label>
@@ -368,7 +392,7 @@
                 </fieldset>
 
                 <fieldset id="fsAskAdd" disabled>
-                     <legend>6. Deseja adicionais? <span class="section-status">(Obrigatório)</span></legend>
+                    <legend>6. Deseja adicionais? <span class="section-status">(Obrigatório)</span></legend>
                     <div class="grid-2">
                         <label><input type="radio" name="wantAdd" value="Sim" required />Sim</label>
                         <label><input type="radio" name="wantAdd" value="Não" />Não</label>
@@ -378,21 +402,22 @@
                 <fieldset id="fsAdd" disabled>
                     <legend>7. Adicionais <span id="cntAdd" class="counter">(0/14)</span></legend>
                     <div class="grid-2" id="boxAdd">
-                         <label><input type="checkbox" value="Ovomaltine R$ 1.00" />Ovomaltine R$ 1.00</label>
-                        <label><input type="checkbox" value="Escureto R$ 1.00" />Escureto R$ 1.00</label>
-                        <label><input type="checkbox" value="Chocoball R$ 1.00" />Chocoball R$ 1.00</label>
-                        <label><input type="checkbox" value="Amendoim R$ 1.00" />Amendoim R$ 1.00</label>
-                        <label><input type="checkbox" value="Paçoca R$ 1.00" />Paçoca R$ 1.00</label>
-                        <label><input type="checkbox" value="Granola R$ 1.00" />Granola R$ 1.00</label>
-                        <label><input type="checkbox" value="Farinha Láctea R$ 1.00" />Farinha Láctea R$ 1.00</label>
-                        <label><input type="checkbox" value="Leite em pó R$ 1.00" />Leite em pó R$ 1.00</label>
-                        <label><input type="checkbox" value="Confetes R$ 1.00" />Confetes R$ 1.00</label>
-                        <label><input type="checkbox" value="Tapioca R$ 1.00" />Tapioca R$ 1.00</label>
-                        <label><input type="checkbox" value="Uva Passa R$ 1.00" />Uva Passa R$ 1.00</label>
-                        <label><input type="checkbox" value="M&MS R$ 1.00" />M&MS R$ 1.00</label>
-                        <label><input type="checkbox" value="Marshmallow R$ 1.00" />Marshmallow R$ 1.00</label>
-                        <label><input type="checkbox" value="Doce de leite R$ 1.00" />Doce de leite R$ 1.00</label>
-                         <label><input type="checkbox" value="Nenhuma" />Nenhum Adicional</label> </div>
+                        <label><input type="checkbox" value="Ovomaltine - R$ 1.00" />Ovomaltine R$ 1.00</label>
+                        <label><input type="checkbox" value="Escureto - R$ 1.00" />Escureto R$ 1.00</label>
+                        <label><input type="checkbox" value="Chocoball - R$ 1.00" />Chocoball R$ 1.00</label>
+                        <label><input type="checkbox" value="Amendoim - R$ 1.00" />Amendoim R$ 1.00</label>
+                        <label><input type="checkbox" value="Paçoca - R$ 1.00" />Paçoca R$ 1.00</label>
+                        <label><input type="checkbox" value="Granola - R$ 1.00" />Granola R$ 1.00</label>
+                        <label><input type="checkbox" value="Farinha Láctea - R$ 1.00" />Farinha Láctea R$ 1.00</label>
+                        <label><input type="checkbox" value="Leite em pó - R$ 1.00" />Leite em pó R$ 1.00</label>
+                        <label><input type="checkbox" value="Confetes - R$ 1.00" />Confetes R$ 1.00</label>
+                        <label><input type="checkbox" value="Tapioca - R$ 1.00" />Tapioca R$ 1.00</label>
+                        <label><input type="checkbox" value="Uva Passa - R$ 1.00" />Uva Passa R$ 1.00</label>
+                        <label><input type="checkbox" value="M&MS - R$ 1.00" />M&MS R$ 1.00</label>
+                        <label><input type="checkbox" value="Marshmallow - R$ 1.00" />Marshmallow R$ 1.00</label>
+                        <label><input type="checkbox" value="Doce de leite - R$ 1.00" />Doce de leite R$ 1.00</label>
+                        <label><input type="checkbox" value="Nenhuma" />Nenhum Adicional</label>
+                    </div>
                 </fieldset>
 
                 <fieldset id="fsPayment" disabled>
@@ -405,10 +430,11 @@
                 </fieldset>
 
                 <fieldset id="fsDelivery" disabled>
-                     <legend>9. Entrega ou Retirada <span class="section-status">(Obrigatório)</span></legend>
+                    <legend>9. Entrega ou Retirada <span class="section-status">(Obrigatório)</span></legend>
                     <div class="grid-2">
                         <label><input type="radio" name="delivery" value="Retirada" required />Retirada</label>
-                        <label><input type="radio" name="delivery" value="Entrega" />Entrega</label>
+                        <label><input type="radio" name="delivery" value="Outeiro - R$ 3.00" />Entrega - Outeiro (R$ 3.00)</label>
+                        <label><input type="radio" name="delivery" value="Cedral - R$ 5.00" />Entrega - Cedral (R$ 5.00)</label>
                     </div>
                 </fieldset>
 
@@ -425,11 +451,13 @@
         </div>
 
         <div id="summary" style="display: none;"></div>
-        <a id="wppLink" href="#" target="_blank"> Enviar Pedido via WhatsApp</a> </main>
+        <a id="wppLink" href="#" target="_blank"> Enviar Pedido via WhatsApp</a>
+    </main>
 
     <script>
         // Referências aos elementos do formulário
         const fs = {
+            tamanho: document.querySelector('fieldset:not([disabled])'), // Referência ao primeiro fieldset (Tamanho)
             frutas: document.getElementById('fsFrutas'),
             cremes: document.getElementById('fsCremes'),
             accomp: document.getElementById('fsAccomp'),
@@ -464,20 +492,22 @@
         let orders = [];
 
         // Funções utilitárias para habilitar/desabilitar fieldsets
-        const enable = el => el.removeAttribute('disabled');
-        const disable = el => el.setAttribute('disabled', '');
+        const enable = el => el && el.removeAttribute('disabled');
+        const disable = el => el && el.setAttribute('disabled', '');
 
         // Função para configurar checkboxes com limite (NÃO OBRIGATÓRIO) e lógica "Nenhuma"
         function setupChecks(containerId, max, key) {
             const box = document.getElementById(containerId);
+            if (!box) return;
+
             const counterEl = cnt[key];
             const checkboxes = box.querySelectorAll('input[type=checkbox]');
-            const noneCheckbox = box.querySelector('input[value="Nenhuma"]'); // Acha o checkbox "Nenhuma"
+            const noneCheckbox = box.querySelector('input[value="Nenhuma"]');
 
-            // Inicializa o estado para esta chave como array vazio se não existir
-             if (!state[key]) { state[key] = []; }
+            if (!state[key]) {
+                state[key] = [];
+            }
 
-            // Atualiza o contador inicial e a legenda
             updateCounter(counterEl, state[key].length, max);
 
             checkboxes.forEach(chk => {
@@ -485,96 +515,100 @@
                     const currentSelected = [...box.querySelectorAll('input:checked')];
                     let isNoneChecked = noneCheckbox && noneCheckbox.checked;
 
-                    // Lógica do "Nenhuma"
                     if (noneCheckbox) {
-                        // Se "Nenhuma" foi clicado e marcado
                         if (chk === noneCheckbox && chk.checked) {
                             checkboxes.forEach(otherChk => {
                                 if (otherChk !== noneCheckbox) otherChk.checked = false;
                             });
-                             state[key] = ['Nenhuma']; // Define o estado como apenas 'Nenhuma'
-                             isNoneChecked = true;
+                            state[key] = ['Nenhuma'];
+                            isNoneChecked = true;
+                        } else if (chk !== noneCheckbox && chk.checked && isNoneChecked) {
+                            noneCheckbox.checked = false;
+                            isNoneChecked = false;
+                            state[key] = [...box.querySelectorAll('input:checked')].map(i => i.value);
+                        } else {
+                            state[key] = currentSelected.filter(c => c !== noneCheckbox || !isNoneChecked).map(i => i.value);
                         }
-                        // Se outra opção foi clicada e marcada, desmarca "Nenhuma"
-                        else if (chk !== noneCheckbox && chk.checked && isNoneChecked) {
-                             noneCheckbox.checked = false;
-                             isNoneChecked = false;
-                             // Recalcula selecionados pois 'Nenhuma' foi desmarcado
-                              state[key] = [...box.querySelectorAll('input:checked')].map(i => i.value);
-                        }
-                         // Se a última opção (exceto "Nenhuma") for desmarcada, não faz nada especial com "Nenhuma"
-                         else {
-                              // Atualiza o estado normal baseado nos checkboxes marcados
-                               state[key] = currentSelected.filter(c => c !== noneCheckbox || !isNoneChecked).map(i => i.value); // Filtra 'Nenhuma' se estiver desmarcado
-                         }
-
                     } else {
-                         // Se não há checkbox "Nenhuma", apenas atualiza o estado
-                         state[key] = currentSelected.map(i => i.value);
+                        state[key] = currentSelected.map(i => i.value);
                     }
 
-
-                    // Aplica o limite MÁXIMO (sem contar 'Nenhuma' se marcado)
                     const actualSelectedCount = state[key].includes('Nenhuma') ? 0 : state[key].length;
                     if (actualSelectedCount > max) {
-                        chk.checked = false; // Desmarca a última seleção excedente
-                        // Atualiza a lista de selecionados novamente
+                        chk.checked = false;
                         const finalSelected = [...box.querySelectorAll('input:checked')].filter(c => c !== noneCheckbox || !isNoneChecked);
                         state[key] = finalSelected.map(i => i.value);
-                        updateCounter(counterEl, state[key].length, max); // Atualiza contador
-                        alert(`Você pode escolher no máximo ${max} ${key === 'add' ? 'adicionais' : key}.`); // Informa o usuário
+                        updateCounter(counterEl, state[key].length, max);
+                        alert(`Você pode escolher no máximo ${max} ${key === 'add' ? 'adicionais' : key}.`);
                         return;
                     }
 
-                    // Atualiza o contador com a contagem correta
                     updateCounter(counterEl, state[key].length, max);
-
-                    // NÃO AVANÇA AUTOMATICAMENTE AQUI
                 };
             });
         }
 
-        // Função para atualizar o texto do contador
         function updateCounter(element, count, max) {
             if (element) {
-                 // Se 'Nenhuma' está selecionado, mostra 0, senão mostra a contagem real
-                 const displayCount = state[element.id.replace('cnt','').toLowerCase()]?.includes('Nenhuma') ? 0 : count;
-                 element.textContent = `( ${displayCount} / ${max} )`;
-                 element.style.display = 'inline'; // Garante que o contador está visível
+                const displayCount = state[element.id.replace('cnt', '').toLowerCase()]?.includes('Nenhuma') ? 0 : count;
+                const displayMax = max !== undefined ? max : '?';
+                element.textContent = `( ${displayCount} / ${displayMax} )`;
+                element.style.display = 'inline';
             }
         }
 
-
-        // Função para avançar entre as etapas controladas por RÁDIOS
         function advance(stage) {
             switch (stage) {
                 case 'askAdd':
                     if (state.wantAdd === 'Sim') {
                         enable(fs.add);
-                        enable(fs.payment); // Habilita pagamento após responder sobre add
+                        enable(fs.payment);
+                        setupChecks('boxAdd', state.addMax, 'add');
+                        updateCounter(cnt.add, state.add.length, state.addMax);
                     } else if (state.wantAdd === 'Não') {
-                         state.add = [];
-                         disable(fs.add);
-                         clearCheckboxes(fs.add);
-                         enable(fs.payment); // Habilita pagamento após responder sobre add
+                        state.add = ['Nenhum'];
+                        disable(fs.add);
+                        clearCheckboxes(fs.add);
+                        updateCounter(cnt.add, 0, state.addMax);
+                        enable(fs.payment);
                     }
                     break;
                 case 'payment':
-                    if(state.payment) enable(fs.delivery);
+                    if (state.payment) enable(fs.delivery);
                     break;
                 case 'delivery':
                     if (state.delivery) {
-                         checkIfCanFinish();
+                        checkIfCanFinish();
                     }
                     break;
             }
         }
 
-        // Verifica se pode habilitar os botões finais
         function checkIfCanFinish() {
-            if (state.size && state.wantAdd && state.payment && state.delivery) {
-                btnAdd.disabled = false;
-                btnFinish.disabled = false;
+            if (state.size !== undefined && state.wantAdd !== undefined && state.payment !== undefined && state.delivery !== undefined) {
+                const isFrutasSelected = !fs.frutas || fs.frutas.disabled || (state.frutas && (state.frutas.length > 0 || state.frutas.includes('Nenhuma')));
+                const isCremesSelected = !fs.cremes || fs.cremes.disabled || (state.cremes && (state.cremes.length > 0 || state.cremes.includes('Nenhuma')));
+                const isAccompSelected = !fs.accomp || fs.accomp.disabled || (state.accomp && (state.accomp.length > 0 || state.accomp.includes('Nenhuma')));
+                const isCoverSelected = !fs.cover || fs.cover.disabled || (state.cover && (state.cover.length > 0 || state.cover.includes('Nenhuma')));
+                const isAddSelected = !fs.add || fs.add.disabled || (state.add && (state.add.length > 0 || state.add.includes('Nenhuma')));
+
+
+                if (state.size !== undefined &&
+                    state.wantAdd !== undefined &&
+                    state.payment !== undefined &&
+                    state.delivery !== undefined &&
+                    isFrutasSelected &&
+                    isCremesSelected &&
+                    isAccompSelected &&
+                    isCoverSelected &&
+                    isAddSelected) {
+                    btnAdd.disabled = false;
+                    btnFinish.disabled = false;
+                } else {
+                    btnAdd.disabled = true;
+                    btnFinish.disabled = true;
+                }
+
             } else {
                 btnAdd.disabled = true;
                 btnFinish.disabled = true;
@@ -582,234 +616,377 @@
         }
 
 
-        // Event listener para a seleção de TAMANHO
         document.querySelectorAll('input[name="size"]').forEach(radio => {
             radio.onchange = e => {
                 document.querySelectorAll('.tamanho-card').forEach(label => label.classList.remove('selected'));
                 e.target.closest('.tamanho-card').classList.add('selected');
 
-                resetPartial();
+                resetDependentOptions();
+
                 state.size = e.target.value;
 
-                let frutasMax = 0, cremesMax = 0, accompMax = 0, coberturaMax = 0;
+                let frutasMax = 0,
+                    cremesMax = 0,
+                    accompMax = 0,
+                    coberturaMax = 0;
                 const addMax = 14;
 
-                if (state.size === 'Copo Pequeno (300ml)') {
-                    frutasMax = 1; cremesMax = 1; accompMax = 3; coberturaMax = 1;
-                } else if (state.size === 'Copo Grande (500ml)') {
-                    frutasMax = 2; cremesMax = 2; accompMax = 3; coberturaMax = 1;
-                } else if (state.size === 'Pote da Felicidade (1L)') {
-                    frutasMax = 3; cremesMax = 3; accompMax = 4; coberturaMax = 2;
+                if (state.size.startsWith('Copo Pequeno')) {
+                    frutasMax = 1;
+                    cremesMax = 1;
+                    accompMax = 3;
+                    coberturaMax = 1;
+                } else if (state.size.startsWith('Copo Grande')) {
+                    frutasMax = 2;
+                    cremesMax = 2;
+                    accompMax = 3;
+                    coberturaMax = 1;
+                } else if (state.size.startsWith('Pote da Felicidade')) {
+                    frutasMax = 3;
+                    cremesMax = 3;
+                    accompMax = 4;
+                    coberturaMax = 2;
                 }
 
-                state.fMax = frutasMax; state.cMax = cremesMax; state.aMax = accompMax; state.coMax = coberturaMax; state.addMax = addMax;
+                state.fMax = frutasMax;
+                state.cMax = cremesMax;
+                state.aMax = accompMax;
+                state.coMax = coberturaMax;
+                state.addMax = addMax;
 
-                 enable(fs.frutas);
-                 enable(fs.cremes);
-                 enable(fs.accomp);
-                 enable(fs.cover);
-                 enable(fs.askAdd);
+                enable(fs.frutas);
+                enable(fs.cremes);
+                enable(fs.accomp);
+                enable(fs.cover);
+                enable(fs.askAdd);
 
-                 setupChecks('boxFrutas', frutasMax, 'frutas');
-                 setupChecks('boxCremes', cremesMax, 'cremes');
-                 setupChecks('boxAccomp', accompMax, 'accomp');
-                 setupChecks('boxCoverage', coberturaMax, 'cover');
-                 setupChecks('boxAdd', addMax, 'add');
 
-                 updateCounter(cnt.frutas, 0, frutasMax);
-                 updateCounter(cnt.cremes, 0, cremesMax);
-                 updateCounter(cnt.accomp, 0, accompMax);
-                 updateCounter(cnt.cover, 0, coberturaMax);
-                 updateCounter(cnt.add, 0, addMax);
+                setupChecks('boxFrutas', frutasMax, 'frutas');
+                setupChecks('boxCremes', cremesMax, 'cremes');
+                setupChecks('boxAccomp', accompMax, 'accomp');
+                setupChecks('boxCoverage', coberturaMax, 'cover');
 
-                 setupRadioListener('wantAdd', 'askAdd');
-                 setupRadioListener('payment', 'payment');
-                 setupRadioListener('delivery', 'delivery');
+                updateCounter(cnt.frutas, 0, frutasMax);
+                updateCounter(cnt.cremes, 0, cremesMax);
+                updateCounter(cnt.accomp, 0, accompMax);
+                updateCounter(cnt.cover, 0, coberturaMax);
+                updateCounter(cnt.add, 0, addMax);
 
-                 disable(fs.add);
-                 disable(fs.payment);
-                 disable(fs.delivery);
-                 btnAdd.disabled = true;
-                 btnFinish.disabled = true;
+                setupRadioListener('wantAdd', 'askAdd');
+                setupRadioListener('payment', 'payment');
+                setupRadioListener('delivery', 'delivery');
+
+                disable(fs.add);
+                disable(fs.payment);
+                disable(fs.delivery);
+                btnAdd.disabled = true;
+                btnFinish.disabled = true;
+
+                checkIfCanFinish();
             };
         });
 
-        // Função auxiliar para configurar listeners de radio buttons
-         function setupRadioListener(name, stageToAdvance) {
+
+        function setupRadioListener(name, stageToAdvance) {
             document.querySelectorAll(`input[name="${name}"]`).forEach(r => {
                 r.onchange = ev => {
                     state[name] = ev.target.value;
                     document.querySelectorAll(`input[name="${name}"]`).forEach(radioEl => {
                         radioEl.closest('label')?.classList.remove('selected-radio');
                     });
-                     ev.target.closest('label')?.classList.add('selected-radio');
+                    ev.target.closest('label')?.classList.add('selected-radio');
+
                     advance(stageToAdvance);
+                    checkIfCanFinish();
                 };
             });
         }
 
-        // Ações dos Botões
         btnAdd.onclick = () => {
-            if(isOrderReadyToAdd()) {
-                orders.push({ ...state });
+            if (isOrderReadyToAdd()) {
+                orders.push({
+                    ...state
+                });
                 renderOrders();
-                resetForm();
-                 document.querySelectorAll('.tamanho-card').forEach(label => label.classList.remove('selected'));
+                resetPartial();
+                document.querySelectorAll('.tamanho-card').forEach(label => label.classList.remove('selected'));
             } else {
                 alert("Por favor, preencha todas as etapas obrigatórias (Tamanho, Adicionais Sim/Não, Pagamento, Entrega) antes de adicionar o pedido.");
             }
         };
 
         btnFinish.onclick = () => {
-             if(isOrderReadyToAdd()) {
-                  let lastOrder = orders[orders.length - 1];
-                  let isDifferent = !lastOrder || JSON.stringify(lastOrder) !== JSON.stringify(state);
-                  if(isDifferent) {
-                       orders.push({ ...state });
-                  }
-                 renderOrders();
-                 showSummary(); // Gera o texto, mas não mostra a div
-                 renderWpp();
-                 disableAll();
-                 btnFinish.disabled = true;
-                 btnAdd.disabled = true;
-             } else {
-                 alert("Por favor, preencha todas as etapas obrigatórias (Tamanho, Adicionais Sim/Não, Pagamento, Entrega) antes de finalizar.");
-             }
+            if (isOrderReadyToAdd()) {
+                let lastOrder = orders[orders.length - 1];
+                let isDifferent = !lastOrder || JSON.stringify(lastOrder) !== JSON.stringify(state);
+
+                if (isDifferent) {
+                    orders.push({
+                        ...state
+                    });
+                }
+
+                renderOrders();
+                showSummary();
+                renderWpp();
+                disableAll();
+                btnFinish.disabled = true;
+                btnAdd.disabled = true;
+
+            } else {
+                alert("Por favor, preencha todas as etapas obrigatórias (Tamanho, Adicionais Sim/Não, Pagamento, Entrega) antes de finalizar.");
+            }
         };
 
-        // Verifica se as etapas OBRIGATÓRIAS controladas por radio foram preenchidas
-        function isOrderReadyToAdd() {
-             state.frutas = state.frutas || [];
-             state.cremes = state.cremes || [];
-             state.accomp = state.accomp || [];
-             state.cover = state.cover || [];
-             state.add = state.add || [];
 
-            return state.size &&
-                   state.wantAdd &&
-                   state.payment &&
-                   state.delivery;
+        function isOrderReadyToAdd() {
+            state.frutas = state.frutas || [];
+            state.cremes = state.cremes || [];
+            state.accomp = state.accomp || [];
+            state.cover = state.cover || [];
+            state.add = state.add || [];
+
+            const areRadiosSelected = state.size !== undefined &&
+                state.wantAdd !== undefined &&
+                state.payment !== undefined &&
+                state.delivery !== undefined;
+
+            const isFrutasValid = !fs.frutas || fs.frutas.disabled || (state.frutas && (state.frutas.length > 0 || state.frutas.includes('Nenhuma')));
+            const isCremesValid = !fs.cremes || fs.cremes.disabled || (state.cremes && (state.cremes.length > 0 || state.cremes.includes('Nenhuma')));
+            const isAccompValid = !fs.accomp || fs.accomp.disabled || (state.accomp && (state.accomp.length > 0 || state.accomp.includes('Nenhuma')));
+            const isCoverValid = !fs.cover || fs.cover.disabled || (state.cover && (state.cover.length > 0 || state.cover.includes('Nenhuma')));
+            const isAddValid = !fs.add || fs.add.disabled || (state.add && (state.add.length > 0 || state.add.includes('Nenhuma')));
+
+
+            return areRadiosSelected &&
+                isFrutasValid &&
+                isCremesValid &&
+                isAccompValid &&
+                isCoverValid &&
+                isAddValid;
         }
 
 
-        // Renderiza a lista de pedidos adicionados
+        // Renderiza a lista de pedidos adicionados (Sem taxa de entrega por pedido)
         function renderOrders() {
             ordersSec.style.display = orders.length > 0 ? 'block' : 'none';
             ordersList.innerHTML = '';
 
             orders.forEach((o, i) => {
                 const li = document.createElement('li');
-                 const displayFrutas = o.frutas?.length > 0 && !o.frutas.includes('Nenhuma') ? o.frutas.join(', ') : 'Nenhuma';
-                 const displayCremes = o.cremes?.length > 0 && !o.cremes.includes('Nenhuma') ? o.cremes.join(', ') : 'Nenhum';
-                 const displayAccomp = o.accomp?.length > 0 && !o.accomp.includes('Nenhuma') ? o.accomp.join(', ') : 'Nenhum';
-                 const displayCover = o.cover?.length > 0 && !o.cover.includes('Nenhuma') ? o.cover.join(', ') : 'Nenhuma';
-                 const displayAdd = o.add?.length > 0 && !o.add.includes('Nenhuma') ? o.add.join(', ') : 'Nenhum';
+                const displayFrutas = o.frutas?.length > 0 && !o.frutas.includes('Nenhuma') ? o.frutas.join(', ') : 'Nenhuma';
+                const displayCremes = o.cremes?.length > 0 && !o.cremes.includes('Nenhuma') ? o.cremes.join(', ') : 'Nenhum';
+                const displayAccomp = o.accomp?.length > 0 && !o.accomp.includes('Nenhuma') ? o.accomp.join(', ') : 'Nenhum';
+                const displayCover = o.cover?.length > 0 && !o.cover.includes('Nenhuma') ? o.cover.join(', ') : 'Nenhuma';
+                const displayAdd = o.add?.length > 0 && !o.add.includes('Nenhuma') ? o.add.map(item => item.split(' - R$ ')[0]).join(', ') : 'Nenhum';
+
+                // Calculate total price for the order (WITHOUT delivery fee)
+                const priceMatch = o.size.match(/R\$ (\d+[,.]\d{2})/);
+                let totalPrice = priceMatch ? parseFloat(priceMatch[1].replace(',', '.')) : 0;
+
+                o.add?.forEach(addon => {
+                    if (addon.includes('R$')) {
+                        const addonPriceMatch = addon.match(/R\$ (\d+[,.]\d{2})/);
+                        if (addonPriceMatch) {
+                            totalPrice += parseFloat(addonPriceMatch[1].replace(',', '.'));
+                        }
+                    }
+                });
 
                 li.innerHTML = `
-                  <strong>Pedido ${i + 1}</strong><br>
-                  Tamanho: ${o.size}<br>
-                  Frutas (${o.frutas?.includes('Nenhuma') ? 0 : o.frutas?.length || 0}/${o.fMax}): ${displayFrutas}<br>
-                  Cremes (${o.cremes?.includes('Nenhuma') ? 0 : o.cremes?.length || 0}/${o.cMax}): ${displayCremes}<br>
-                  Acompanhamentos (${o.accomp?.includes('Nenhuma') ? 0 : o.accomp?.length || 0}/${o.aMax}): ${displayAccomp}<br>
-                  Cobertura(s) (${o.cover?.includes('Nenhuma') ? 0 : o.cover?.length || 0}/${o.coMax}): ${displayCover}<br>
-                  Adicionais (${o.add?.includes('Nenhuma') ? 0 : o.add?.length || 0}/${o.addMax}): ${displayAdd}<br>
-                  Pagamento: ${o.payment || 'Não definido'}<br>
-                  Entrega: ${o.delivery || 'Não definido'}
+                    <strong>Pedido ${i + 1}:</strong><br>
+                    Tamanho: ${o.size.split(' - R$ ')[0]}<br>
+                    Frutas: ${displayFrutas}<br>
+                    Cremes: ${displayCremes}<br>
+                    Acompanhamentos: ${displayAccomp}<br>
+                    Coberturas: ${displayCover}<br>
+                    Adicionais: ${displayAdd}<br>
+                    Pagamento: ${o.payment}<br>
+                    Entrega/Retirada: ${o.delivery.split(' - R$ ')[0]}<br>
+                    <strong>Total do Pedido: R$ ${totalPrice.toFixed(2).replace('.', ',')}</strong>
                 `;
                 ordersList.appendChild(li);
             });
         }
 
-        // Gera o texto de resumo formatado para WhatsApp
+
+        // Gera o texto do resumo para o WhatsApp (Taxa de entrega apenas no total geral)
         function showSummary() {
-            let txt = '*Resumo do Pedido Blue Açaí*\n\n';
+            let summaryText = "Novo Pedido Blue Açaí!\n\n";
+            let totalGeral = 0;
+            let deliveryFee = 0;
+            let deliveryLocation = "Retirada"; // Default
+
             orders.forEach((o, i) => {
-                 const displayFrutas = o.frutas?.length > 0 && !o.frutas.includes('Nenhuma') ? o.frutas.join(', ') : 'Nenhuma';
-                 const displayCremes = o.cremes?.length > 0 && !o.cremes.includes('Nenhuma') ? o.cremes.join(', ') : 'Nenhum';
-                 const displayAccomp = o.accomp?.length > 0 && !o.accomp.includes('Nenhuma') ? o.accomp.join(', ') : 'Nenhum';
-                 const displayCover = o.cover?.length > 0 && !o.cover.includes('Nenhuma') ? o.cover.join(', ') : 'Nenhuma';
-                 const displayAdd = o.add?.length > 0 && !o.add.includes('Nenhuma') ? o.add.join(', ') : 'Nenhum';
+                // Extrai o preço do tamanho usando regex (adaptado para , ou .)
+                const priceMatch = o.size.match(/R\$ (\d+[,.]\d{2})/);
+                let totalPricePedido = priceMatch ? parseFloat(priceMatch[1].replace(',', '.')) : 0;
 
-                txt += `*Pedido ${i + 1}*\n`;
-                txt += `- Tamanho: ${o.size}\n`;
-                txt += `- Frutas: ${displayFrutas}\n`;
-                txt += `- Cremes: ${displayCremes}\n`;
-                txt += `- Acompanhamentos: ${displayAccomp}\n`;
-                txt += `- Cobertura(s): ${displayCover}\n`;
-                txt += `- Adicionais: ${displayAdd}\n`;
-                txt += `- Pagamento: ${o.payment}\n`;
-                txt += `- Entrega/Retirada: ${o.delivery}\n\n`;
+                // Soma o preço dos adicionais para o total do pedido
+                o.add?.forEach(addon => {
+                    if (addon.includes('R$')) {
+                        const addonPriceMatch = addon.match(/R\$ (\d+[,.]\d{2})/);
+                        if (addonPriceMatch) {
+                            totalPricePedido += parseFloat(addonPriceMatch[1].replace(',', '.'));
+                        }
+                    }
+                });
+
+                // Acumula o total de cada pedido no total geral (sem a taxa de entrega)
+                totalGeral += totalPricePedido;
+
+                const displayFrutas = o.frutas?.length > 0 && !o.frutas.includes('Nenhuma') ? o.frutas.join(', ') : 'Nenhuma';
+                const displayCremes = o.cremes?.length > 0 && !o.cremes.includes('Nenhuma') ? o.cremes.join(', ') : 'Nenhum';
+                const displayAccomp = o.accomp?.length > 0 && !o.accomp.includes('Nenhuma') ? o.accomp.join(', ') : 'Nenhum';
+                const displayCover = o.cover?.length > 0 && !o.cover.includes('Nenhuma') ? o.cover.join(', ') : 'Nenhuma';
+                const displayAdd = o.add?.length > 0 && !o.add.includes('Nenhuma') ? o.add.map(item => item.split(' - R$ ')[0]).join(', ') : 'Nenhum';
+
+                summaryText += `*Pedido ${i + 1}:*\n`;
+                summaryText += `Tamanho: ${o.size.split(' - R$ ')[0]}\n`;
+                summaryText += `Frutas: ${displayFrutas}\n`;
+                summaryText += `Cremes: ${displayCremes}\n`;
+                summaryText += `Acompanhamentos: ${displayAccomp}\n`;
+                summaryText += `Coberturas: ${displayCover}\n`;
+                summaryText += `Adicionais: ${displayAdd}\n`;
+                summaryText += `Pagamento: ${o.payment}\n`;
+                 // Mostra Entrega/Retirada para cada pedido, mas o valor da entrega é adicionado apenas no total geral
+                summaryText += `Entrega/Retirada: ${o.delivery.split(' - R$ ')[0]}\n`;
+                summaryText += `*Total do Pedido: R$ ${totalPricePedido.toFixed(2).replace('.', ',')}*\n\n`;
+
+                 // Captura a informação da entrega do PRIMEIRO pedido (assume-se que todos para a mesma casa terão a mesma entrega)
+                 if(i === 0) {
+                     deliveryLocation = o.delivery.split(' - R$ ')[0];
+                     if (o.delivery.includes('R$')) {
+                         const deliveryPriceMatch = o.delivery.match(/R\$ (\d+[,.]\d{2})/);
+                         if (deliveryPriceMatch) {
+                             deliveryFee = parseFloat(deliveryPriceMatch[1].replace(',', '.'));
+                         }
+                     }
+                 }
             });
-            summaryEl.textContent = txt; // Define o texto no elemento oculto
-            // summaryEl.style.display = 'block'; // ****** ESTA LINHA FOI COMENTADA ******
+
+             // Adiciona a taxa de entrega ao total geral APENAS SE não for Retirada
+             if (deliveryLocation !== "Retirada") {
+                 totalGeral += deliveryFee;
+                 summaryText += `*Taxa de Entrega (${deliveryLocation}): R$ ${deliveryFee.toFixed(2).replace('.', ',')}*\n\n`;
+             } else {
+                  summaryText += `*Forma de Recebimento: Retirada*\n\n`;
+             }
+
+
+            summaryText += `*Total Geral do Pedido: R$ ${totalGeral.toFixed(2).replace('.', ',')}*\n\n`;
+            summaryEl.textContent = summaryText;
         }
 
-        // Cria o link do WhatsApp com a mensagem do resumo
         function renderWpp() {
-            const phoneNumber = "5598985016035"; // SEU NÚMERO DE WHATSAPP
-            // Usa o texto já armazenado no elemento summaryEl
-            const msg = encodeURIComponent(summaryEl.textContent);
-            wppLink.href = `https://wa.me/${phoneNumber}?text=${msg}`;
-            wppLink.style.display = 'inline-flex'; // Torna o botão WPP visível
+            const phoneNumber = '5598985016035'; // Seu número
+            const encodedText = encodeURIComponent(summaryEl.textContent);
+            wppLink.href = `https://wa.me/${phoneNumber}?text=${encodedText}`;
+            wppLink.style.display = 'inline-flex';
         }
 
-        // Reseta o formulário para adicionar um novo pedido ou no início
-        function resetForm() {
-            form.reset();
-            state = {};
-             resetPartial();
-             document.querySelectorAll('input[name="size"]').forEach(radio => radio.checked = false);
-             document.querySelectorAll('.tamanho-card').forEach(label => label.classList.remove('selected'));
-              document.querySelectorAll('.selected-radio').forEach(label => label.classList.remove('selected-radio'));
+        function resetDependentOptions() {
+            state.frutas = [];
+            state.cremes = [];
+            state.accomp = [];
+            state.cover = [];
+            state.add = [];
+            state.wantAdd = undefined;
+            state.payment = undefined;
+            state.delivery = undefined;
 
-             ordersSec.style.display = orders.length > 0 ? 'block' : 'none';
-             // summaryEl.style.display = 'none'; // Já está none por padrão, não precisa aqui
-             wppLink.style.display = 'none';
+            disable(fs.frutas);
+            disable(fs.cremes);
+            disable(fs.accomp);
+            disable(fs.cover);
+            disable(fs.askAdd);
+            disable(fs.add);
+            disable(fs.payment);
+            disable(fs.delivery);
 
-             enable(document.querySelector('fieldset'));
+            clearCheckboxes(fs.frutas);
+            clearCheckboxes(fs.cremes);
+            clearCheckboxes(fs.accomp);
+            clearCheckboxes(fs.cover);
+            clearCheckboxes(fs.add);
+            clearRadios('wantAdd');
+            clearRadios('payment');
+            clearRadios('delivery');
+
+            document.querySelectorAll('.selected-radio').forEach(label => label.classList.remove('selected-radio'));
+
+            updateCounter(cnt.frutas, 0, '?');
+            updateCounter(cnt.cremes, 0, '?');
+            updateCounter(cnt.accomp, 0, '?');
+            updateCounter(cnt.cover, 0, '?');
+            updateCounter(cnt.add, 0, 14);
+
+            btnAdd.disabled = true;
+            btnFinish.disabled = true;
         }
 
-        // Reseta parcialmente o formulário
         function resetPartial() {
-             Object.values(fs).forEach(disable);
-             Object.values(cnt).forEach(c => { if(c) { c.textContent = '(0/?)'; c.style.display = 'none'; } });
-             // cnt.add.textContent = '(0/14)'; // Linha redundante se já pega no loop
-              state.frutas = []; state.cremes = []; state.accomp = []; state.cover = []; state.add = [];
-              state.wantAdd = undefined; state.payment = undefined; state.delivery = undefined;
-              btnAdd.disabled = true;
-              btnFinish.disabled = true;
-              clearCheckboxes(fs.frutas);
-              clearCheckboxes(fs.cremes);
-              clearCheckboxes(fs.accomp);
-              clearCheckboxes(fs.cover);
-              clearCheckboxes(fs.add);
-              clearRadios('wantAdd');
-              clearRadios('payment');
-              clearRadios('delivery');
-              document.querySelectorAll('.selected-radio').forEach(label => label.classList.remove('selected-radio'));
+            resetDependentOptions();
+            clearRadios('size');
+            state.size = undefined;
+
+            const allFieldsets = form.querySelectorAll('fieldset');
+            allFieldsets.forEach(disable);
+            enable(fs.tamanho);
+
+            summaryEl.style.display = 'none';
+            wppLink.style.display = 'none';
         }
 
-        // Função auxiliar para limpar checkboxes
-         function clearCheckboxes(fieldset) {
+
+        function resetForm() {
+            state = {};
+            orders = [];
+            ordersSec.style.display = 'none';
+            ordersList.innerHTML = '';
+            wppLink.style.display = 'none';
+            summaryEl.textContent = '';
+            summaryEl.style.display = 'none';
+
+            const allFieldsets = form.querySelectorAll('fieldset');
+            allFieldsets.forEach(disable);
+            enable(fs.tamanho);
+
+            document.querySelectorAll('input[type="checkbox"]').forEach(chk => chk.checked = false);
+            document.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
+
+            document.querySelectorAll('.selected-radio').forEach(label => label.classList.remove('selected-radio'));
+            document.querySelectorAll('.tamanho-card').forEach(label => label.classList.remove('selected'));
+
+
+            document.querySelectorAll('.counter').forEach(counter => counter.textContent = '(0/?)');
+
+
+            btnAdd.disabled = true;
+            btnFinish.disabled = true;
+
+            setupRadioListener('wantAdd', 'askAdd');
+            setupRadioListener('payment', 'payment');
+            setupRadioListener('delivery', 'delivery');
+
+        }
+
+        function clearCheckboxes(fieldset) {
             if (fieldset) {
                 fieldset.querySelectorAll('input[type="checkbox"]').forEach(chk => chk.checked = false);
             }
         }
-        // Função auxiliar para limpar radios
+
         function clearRadios(name) {
-             document.querySelectorAll(`input[name="${name}"]`).forEach(r => r.checked = false);
+            document.querySelectorAll(`input[name="${name}"]`).forEach(r => r.checked = false);
         }
 
-        // Desabilita todos os fieldsets do formulário
         function disableAll() {
             const allFieldsets = form.querySelectorAll('fieldset');
             allFieldsets.forEach(disable);
         }
 
-         // Inicialização
-         resetForm();
-
+        resetForm();
     </script>
 </body>
 
